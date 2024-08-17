@@ -1,0 +1,28 @@
+[gd_scene load_steps=7 format=3 uid="uid://b55yt2ojhgy8c"]
+
+[ext_resource type="Script" path="res://MainScene/main_scene.gd" id="1_1eu10"]
+[ext_resource type="PackedScene" uid="uid://pj47rb0idvg" path="res://Snake/snake_head.tscn" id="2_xidlv"]
+[ext_resource type="Script" path="res://MainScene/Bounds.gd" id="3_7mkpo"]
+[ext_resource type="Script" path="res://MainScene/spawner.gd" id="4_et5ls"]
+[ext_resource type="PackedScene" uid="uid://da4y1g4kgi514" path="res://Apple/food.tscn" id="5_jhmi0"]
+[ext_resource type="PackedScene" uid="uid://cjc6q8yrruwfw" path="res://Apple/Tail.tscn" id="6_q4pc3"]
+
+[node name="MainScene" type="Node2D"]
+script = ExtResource("1_1eu10")
+
+[node name="SnakeHead" parent="." instance=ExtResource("2_xidlv")]
+position = Vector2(64, 128)
+
+[node name="Bounds" type="Node" parent="."]
+script = ExtResource("3_7mkpo")
+
+[node name="UpperLeft" type="Marker2D" parent="Bounds"]
+
+[node name="LowerRight" type="Marker2D" parent="Bounds"]
+position = Vector2(800, 448)
+
+[node name="Spawner" type="Node2D" parent="." node_paths=PackedStringArray("bounds")]
+script = ExtResource("4_et5ls")
+bounds = NodePath("../Bounds")
+food_scene = ExtResource("5_jhmi0")
+tail_scene = ExtResource("6_q4pc3")

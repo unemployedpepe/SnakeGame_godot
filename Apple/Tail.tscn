@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cjc6q8yrruwfw"]
+
+[ext_resource type="Script" path="res://Apple/Tail.gd" id="1_15ajj"]
+[ext_resource type="Texture2D" uid="uid://bhbko1t60u67a" path="res://icon resized 64x64.svg" id="2_whkbr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gg6ao"]
+size = Vector2(60, 60)
+
+[node name="Tail" type="Area2D" groups=["tails"]]
+script = ExtResource("1_15ajj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_gg6ao")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_whkbr")

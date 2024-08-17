@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://pj47rb0idvg"]
+
+[ext_resource type="Texture2D" uid="uid://bhbko1t60u67a" path="res://icon resized 64x64.svg" id="1_20i6s"]
+[ext_resource type="Script" path="res://Snake/snake_head.gd" id="1_nvv73"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6jowh"]
+size = Vector2(60, 60)
+
+[node name="SnakeHead" type="Area2D"]
+script = ExtResource("1_nvv73")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_20i6s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_6jowh")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
